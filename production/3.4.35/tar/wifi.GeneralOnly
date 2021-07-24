@@ -1,0 +1,23 @@
+VERSION=3.3.40
+echo "wifiGeneralOnly ${VERSION} started."
+date
+
+# Configuring wireless
+if grep -q gl-x750 "/etc/board.json"; then
+    echo "setting wireless gl-x750"
+    uci set wireless.default_radio0.disabled='1'
+    uci set wireless.default_radio1.disabled='1'
+    uci set wireless.guest2g.disabled='0'
+    uci set wireless.guest5g.disabled='0'
+    uci commit wireless
+fi
+
+if grep -q gl-mifi "/etc/board.json"; then
+    echo "setting wireless gl-mifi"
+    uci set wireless.default_radio0.disabled='1'
+    uci set wireless.guest2g.disabled='0'
+    uci commit wireless
+fi
+
+echo "wifiGeneralOnly ${VERSION} done."
+reboot
