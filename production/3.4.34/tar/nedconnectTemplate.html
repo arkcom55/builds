@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="bulma.css">
+<link rel="stylesheet" type="text/css" href="nedconnect.css">
+
+<title>NEDconnect</title>
+
+</head>
+
+<body>
+<div class="ned-background"></div>
+<div class="columns is-centered is-mobile">
+	<div class="column has-text-centered is-6-desktop is-11-mobile">
+		<div class="is-size-3 has-text-weight-bold has-text-success-dark mt-4 pt-4">Welcome to NEDconnect</div>
+		<!-- NEDconnect Internal -->
+		<div class="is-size-4 has-text-weight-bold has-text-success-dark">^orgName^</div>
+		<div class="is-size-4 has-text-weight-bold has-text-success-dark">^nedMessage^</div>
+		<div class="is-size-4 has-text-weight-bold has-text-success-dark">^groupMessage^</div>
+		<div class="is-size-4 has-text-weight-bold has-text-success-dark">^deviceMessage^</div>
+
+		<div class="mt-4" id="nedUsage">
+			You have used ^percentageSchool^% of your ^budgetSchool^ GB of School data access.<br>
+			You have used ^percentageGeneral^% of your ^budgetGeneral^ GB of General data access.<br>
+		</div>
+
+		<div class="mt-4">
+			<a href="https://data.neducation.ca/?tel=^phone^&mac=^mac^&iccid=^iccid^&imei=^imei^" class="button is-info is-hovered is-focused mt-5 schoolLink">GET MORE DATA ACCESS</a>
+		</div>
+
+		<div class="mt-4 pt-4">
+			<span style="white-space:nowrap">For School Internet Access, please connect</span><br>
+			<span style="white-space:nowrap">to the NEDschool-^ssid3^ network.</span>
+		</div>
+		<div class="mt-4">
+			<span style="white-space:nowrap">For General Internet Access, please connect</span><br>
+			<span style="white-space:nowrap">to the NEDgeneral-^ssid3^ network.</span>
+		</div>
+
+		<input type="checkbox" id="expand-toggle" />
+		<div class="has-text-grey is-italic is-size-7 mt-4">
+			<span style="white-space:nowrap">Copyright &copy; Neducation Management 2020.</span>
+			<span style="white-space:nowrap">All Rights Reserved.</span>
+			<span class="has-text-info has-text-weight-bold" style="white-space:nowrap">
+				<label for="expand-toggle" id="expand-btn">Device Details</label>
+			</span>
+		</div>
+
+		<div class="expandable mt-4">
+			<br>
+			Organization: ^orgName^ <br>
+			Address: ^mac^ <br>
+			NED Number: ^phone^ <br>
+			Network ID: ^ssid3^ <br>
+			School Web Page: <a href="^schoolUrl^">School</a> <br>
+			School Data Use: ^totalSchool^ GB<br>
+			General Data Use: ^totalGeneral^ GB<br>
+			Max School Data: ^budgetSchool^ GB<br>
+			Max General Data: ^budgetGeneral^ GB<br>
+			Percentage School Data Used: ^percentageSchool^% <br>
+			Percentage General Data Used: ^percentageGeneral^% <br>
+            ^status^<br>
+		</div>
+		
+	</div>
+</div>
+</body>
+
+</html>
