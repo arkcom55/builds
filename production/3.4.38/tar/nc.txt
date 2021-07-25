@@ -1,0 +1,116 @@
+hi
+From ned@neducation.ca  Sun Nov 11 05:45:01 2018
+Return-Path: <ned@neducation.ca>
+X-Original-To: ned
+Delivered-To: ned@neducation.ca
+Received: by www.neducation.ca (Postfix, from userid 1000)
+	id D06C582F48; Sun, 11 Nov 2018 05:45:01 +0000 (UTC)
+From: root@neducation.ca (Cron Daemon)
+To: ned@neducation.ca
+Subject: Cron <ned@www> /usr/bin/php /home/ned/neddev/serverx/backup.php
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <SHELL=/bin/sh>
+X-Cron-Env: <HOME=/home/ned>
+X-Cron-Env: <PATH=/usr/bin:/bin>
+X-Cron-Env: <LOGNAME=ned>
+Message-Id: <20181111054501.D06C582F48@www.neducation.ca>
+Date: Sun, 11 Nov 2018 05:45:01 +0000 (UTC)
+
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+{"status":0}
+
+From ned@neducation.ca  Tue Nov 13 05:00:01 2018
+Return-Path: <ned@neducation.ca>
+X-Original-To: ned
+Delivered-To: ned@neducation.ca
+Received: by www.neducation.ca (Postfix, from userid 1000)
+	id 7B58682F50; Tue, 13 Nov 2018 05:00:01 +0000 (UTC)
+From: root@neducation.ca (Cron Daemon)
+To: ned@neducation.ca
+Subject: Cron <ned@www> /usr/bin/php /home/ned/neddev/serverx/msgdaemon.php
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <SHELL=/bin/sh>
+X-Cron-Env: <HOME=/home/ned>
+X-Cron-Env: <PATH=/usr/bin:/bin>
+X-Cron-Env: <LOGNAME=ned>
+Message-Id: <20181113050001.7B58682F50@www.neducation.ca>
+Date: Tue, 13 Nov 2018 05:00:01 +0000 (UTC)
+
+{"status":0}
+
+From ned@neducation.ca  Tue Nov 13 05:45:02 2018
+Return-Path: <ned@neducation.ca>
+X-Original-To: ned
+Delivered-To: ned@neducation.ca
+Received: by www.neducation.ca (Postfix, from userid 1000)
+	id 4D6B282F58; Tue, 13 Nov 2018 05:45:02 +0000 (UTC)
+From: root@neducation.ca (Cron Daemon)
+To: ned@neducation.ca
+Subject: Cron <ned@www> /usr/bin/php /home/ned/neddev/serverx/backup.php
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <SHELL=/bin/sh>
+X-Cron-Env: <HOME=/home/ned>
+X-Cron-Env: <PATH=/usr/bin:/bin>
+X-Cron-Env: <LOGNAME=ned>
+Message-Id: <20181113054502.4D6B282F58@www.neducation.ca>
+Date: Tue, 13 Nov 2018 05:45:02 +0000 (UTC)
+
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+{"status":0}
+
+From ned@neducation.ca  Sat Mar 30 06:02:01 2019
+Return-Path: <ned@neducation.ca>
+X-Original-To: ned
+Delivered-To: ned@neducation.ca
+Received: by www.neducation.ca (Postfix, from userid 1000)
+	id 2751384F11; Sat, 30 Mar 2019 06:02:01 +0000 (UTC)
+From: root@neducation.ca (Cron Daemon)
+To: ned@neducation.ca
+Subject: Cron <ned@dev> /usr/bin/php /home/ned/neddev/serverExperimental/dailydaemon.php
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <SHELL=/bin/sh>
+X-Cron-Env: <HOME=/home/ned>
+X-Cron-Env: <PATH=/usr/bin:/bin>
+X-Cron-Env: <LOGNAME=ned>
+Message-Id: <20190330060201.2751384F11@www.neducation.ca>
+Date: Sat, 30 Mar 2019 06:02:01 +0000 (UTC)
+
+{"error_fields":["error"],"error_messages":{"error":["Could not insert record."]},"status":1}
+
+From ned@neducation.ca  Mon Apr 22 06:02:04 2019
+Return-Path: <ned@neducation.ca>
+X-Original-To: ned
+Delivered-To: ned@neducation.ca
+Received: by www.neducation.ca (Postfix, from userid 1000)
+	id 74C257E0B2; Mon, 22 Apr 2019 06:02:04 +0000 (UTC)
+From: root@neducation.ca (Cron Daemon)
+To: ned@neducation.ca
+Subject: Cron <ned@dev> /usr/bin/php /home/ned/neddev/serverExperimental/dailydaemon.php
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <SHELL=/bin/sh>
+X-Cron-Env: <HOME=/home/ned>
+X-Cron-Env: <PATH=/usr/bin:/bin>
+X-Cron-Env: <LOGNAME=ned>
+Message-Id: <20190422060204.74C257E0B2@www.neducation.ca>
+Date: Mon, 22 Apr 2019 06:02:04 +0000 (UTC)
+
+{"status":0}
+
+From ned@neducation.ca  Sun Apr 28 06:02:05 2019
+Return-Path: <ned@neducation.ca>
+X-Original-To: ned
+Delivered-To: ned@neducation.ca
+Received: by www.neducation.ca (Postfix, from userid 1000)
+	id 1E27484F13; Sun, 28 Apr 2019 06:02:05 +0000 (UTC)
+From: root@neducation.ca (Cron Daemon)
+To: ned@ne

@@ -1,0 +1,12 @@
+
+config service 'core'
+	option enabled '1'
+
+config service 'traffic'
+	option enabled '1'
+	option dns '0'
+	option splash '0'
+
+config service 'qos'
+	option enabled '1'
+

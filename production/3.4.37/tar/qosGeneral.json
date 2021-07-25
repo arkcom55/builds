@@ -1,0 +1,10 @@
+{
+    "overBudget":0,
+    "initialTargetRateBitsPerSec":10000000,
+    "targetRateBitsPerSec":1200000,
+    "targetRateMultiplier":3.0,
+    "targetRateDecayTimeSec":60,
+    "drainRateMultiplier":1.0,
+    "bucketSizeBytes":5000000,
+    "restartSizeBytes":2500000
+}

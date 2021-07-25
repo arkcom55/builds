@@ -1,0 +1,183 @@
+//*******************************************************************
+// File:  nednet2bcommon.h
+//-------------------------------------------------------------------
+// Date:  2020-07-18
+// Copyright (c) 2020 Neducation Management Inc.
+//-------------------------------------------------------------------
+
+#define TRUE        (1)
+#define FALSE       (0)
+
+#define ERR_OK      (0)
+#define ERR_ERROR   (1)
+
+#define LOG_ERROR       (1)
+#define LOG_WARN        (2)
+#define LOG_INFO        (4)
+#define LOG_DEBUG       (8)
+
+#define MODEM_PORT      "/dev/ttyUSB2"
+
+#define DEFAULT_PHONE_NUMBER    "13065551212"
+#define DEFAULT_IMEI            "IMEI_IMEI_IMEI"
+#define DEFAULT_MAC             "FF:FF:FF:FF:FF:FF"
+#define DEFAULT_MODEL           "Test"
+#define DEFAULT_ICCID           "ICCID_ICCID_ICCID"
+#define DEFAULT_APN             "apn.r.us"
+#define DEFAULT_CARRIER         "carrier"
+#define DEFAULT_DDNS            "ddnsXXXX"
+#define DEFAULT_SERIAL          "12345678"
+
+// Note rates in bps, sizes in bytes
+#define DEFAULT_INITIAL_RATE (10000000)
+#define DEFAULT_SCHOOL_TARGET_RATE (1200000)
+#define DEFAULT_GENERAL_TARGET_RATE (1200000)
+#define DEFAULT_TARGET_RATE (1200000)
+#define DEFAULT_TARGET_RATE_MULTIPLIER (3.0)
+#define DEFAULT_TARGET_RATE_DECAY_TIME (60)
+#define DEFAULT_DRAIN_RATE_MULTIPLIER (1.0)
+#define DEFAULT_BUCKET_SIZE (5000000)
+#define DEFAULT_RESTART_SIZE (2500000)
+
+#define DEFAULT_OVERBUDGET_INITIAL_RATE (100000)
+#define DEFAULT_OVERBUDGET_SCHOOL_TARGET_RATE (1200000)
+#define DEFAULT_OVERBUDGET_GENERAL_TARGET_RATE (100000)
+#define DEFAULT_OVERBUDGET_TARGET_RATE (100000)
+#define DEFAULT_OVERBUDGET_TARGET_RATE_MULTIPLIER (1.0)
+#define DEFAULT_OVERBUDGET_TARGET_RATE_DECAY_TIME (60)
+#define DEFAULT_OVERBUDGET_DRAIN_RATE_MULTIPLIER (1.0)
+#define DEFAULT_OVERBUDGET_BUCKET_SIZE (5000000)
+#define DEFAULT_OVERBUDGET_RESTART_SIZE (2500000)
+
+#define DEFAULT_SAMPLING_PERIOD (12)
+
+typedef char* String;
+typedef long long Int64s;
+
+#define MAX_VALUE_LEN (1024)
+typedef struct Dict_s {
+    char    key[80];
+    char    value[MAX_VALUE_LEN];
+} Dict_t;
+
+typedef struct Parameters_s {
+    int         numParameters;
+    Dict_t*     parameters;
+} Parameters_t;
+
+typedef struct Message_s {
+    String          accountId;
+    String          authorizationId;
+    int             sequenceNumber;
+    Int64s          timestamp;
+    String          MAC;
+    String          messageId;
+    Parameters_t    parameters;
+} Message_t;
+
+typedef struct Response_s {
+    int             sequenceNumber;
+    Int64s          timestamp;
+    String          MAC;
+    String          messageId;
+    int             status;
+    cJSON*          data;
+    cJSON*          json;
+} Response_t;
+
+#define ELEMENT_STRING  (0)
+#define ELEMENT_INTEGER (1)
+#define ELEMENT_OBJECT  (2)
+#define ELEMENT_ARRAY   (3)
+
+typedef struct Element_s {
+    int     type;
+    char    key[80];
+    char    value[256];
+} Element_t;
+
+typedef struct Data_s {
+    int             numElements;
+    Element_t*      elements;
+} Data_t;
+
+typedef struct Lease_s {
+    int     timestamp;
+    String  mac;
+    String  ip;
+    String  name;
+    int     school;
+    struct  Lease_s* next;
+} Lease_t;
+
+typedef struct {
+    int     overBudget;
+    long    initialTargetRate;
+    long    targetRate;
+    float   targetRateMultiplier;
+    int     targetRateDecayTime;
+    float   drainRateMultiplier;
+    long    bucketSize;
+    long    restartSize;
+} QosConfig_t;
+
+extern int gLogLevel;
+
+extern String gPhoneNumber;
+extern String gIMEI;
+extern String gMAC;
+extern String gUpTime;
+extern String gICCID;
+extern String gModel;
+extern String gModem;
+extern String gAPN;
+extern String gCarrier;
+extern String gDDNS;
+extern String gSerial;
+
+extern int gRemoteLogEnable;
+
+extern int (*gPostResponse)(Response_t* rp);
+
+void ApiInit(String URL);
+void ApiQuit();
+String GetVersion();
+
+void Logger(int level, String format, ...);
+void LogPermanent(String program, String format, ...);
+int ParametersInit(Parameters_t* pp);
+int ParametersAdd(Parameters_t* pp, String key, String value);
+int ParametersAddInt(Parameters_t* pp, String key, int value);
+int ParametersAddLong(Parameters_t* pp, String key, Int64s value);
+int ParametersFree(Parameters_t* pp);
+
+int MessageLog(int level, String log);
+int MessageCommandResponse(int commandReference, String response);
+int ResponseParse(Response_t* rp, String sp);
+int ResponseFree(Response_t* rp);
+int JSONReadAsInt(cJSON* jp);
+Message_t* MessageConstruct(String messageId, Parameters_t* parameters);
+int MessagePost(Message_t* mp, int responseFlag);
+int MessageLog(int level, String log);
+int MacRead();
+String ReadTextFile(String filename);
+cJSON* JSONGetObject(cJSON* json, String name);
+String JSONGetString(cJSON* json, String name);
+String StrDuplicate(String inSp);
+String StrConcat(String base, String toAdd);
+int SimRead();
+int ExecuteCommand(String command, String* rpp);
+Int64s TimeMsec();
+int LoggerInit(String program);
+int LoggerCheckRotate();
+int StrReplace(String* spp, String newString);
+long GetCurrentRSS();
+int AddToBoot(String program);
+Lease_t* GetLeases();
+int SetIpTablesNat(int position, String subcommand);
+int SetAPN(String apn);
+int InitQosConfig(QosConfig_t* qp);
+int InitQosConfigOverbudget(QosConfig_t* qp);
+int ReadQosConfig(String file, QosConfig_t* qp);
+int WriteQosConfig(String file, QosConfig_t* qp);
+String ConfigRead();
